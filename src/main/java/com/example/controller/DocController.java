@@ -24,33 +24,29 @@ public class DocController {
 
 	@Autowired
 	private DocService service;
-	
+
 	@PostMapping
-	public DocModal addd(@RequestBody DocModal modal)
-	{
+	public DocModal addd(@RequestBody DocModal modal) {
 		return service.savedoc(modal);
 	}
-	
+
 	@GetMapping
-	public List<DocModal> getAll()
-	{
-	  return service.getall();
+	public List<DocModal> getAll() {
+		return service.getall();
 	}
 
 	@GetMapping("{id}")
-	public Optional<Doctor> getById(@PathVariable Long id)
-	{
+	public Optional<Doctor> getById(@PathVariable Long id) {
 		return service.getById(id);
 	}
-	
+
 	@DeleteMapping("{id}")
-	public boolean delete(@PathVariable Long id)
-	{
+	public boolean delete(@PathVariable Long id) {
 		return service.deleteById(id);
 	}
+
 	@PutMapping("{id}")
-	public Doctor update(@RequestBody DocModal modal,@PathVariable Long id)
-	{
+	public Doctor update(@RequestBody DocModal modal, @PathVariable Long id) {
 		return service.update(id, modal);
 	}
 }
